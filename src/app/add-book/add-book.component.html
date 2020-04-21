@@ -1,0 +1,29 @@
+<div class="add-books rtl m-navbar">
+  <div class="container">
+    <h2 class="h1">اضف الكتب التى تريدها هنا</h2>
+    <form>
+      <div class="form-group">
+        <label for="name">اسم الكتاب</label>
+        <input type="text" placeholder="برجاء ادخال اسم الكتاب">
+      </div>
+      <div class="form-group">
+        <label for="name">اسم المؤلف</label>
+        <input type="text" placeholder="برجاء ادخال اسم المؤلف">
+      </div>
+      <div class="form-group">
+        <label for="name">عن الكتاب</label>
+        <input type="text" placeholder="برجاء ادخال قصة الكتاب">
+      </div>
+      <div class="form-group">
+        <label for="name">صورة الكتاب</label>
+        <input class="main-file" type="file" hidden #viewMainFile>
+        <button type="button" class="file" #viewFile (click)="doFile(viewFile, viewIcon)">اختر الصورة</button>
+        <i class="fas fa-times" #viewIcon hidden></i>
+      </div>
+      <div class="form-group">
+        <button>تأكيد الطلب</button>
+      </div>
+    </form>
+
+  </div>
+</div>

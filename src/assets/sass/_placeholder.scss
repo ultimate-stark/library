@@ -31,3 +31,34 @@
     }
   }
 }
+
+%form {
+  label {
+    display: block;
+  }
+  input {
+    &:not(.file) {
+      border: 2px solid $mainColor;
+      outline: none;
+      padding: 6px 10px;
+      transition: all 0.2s ease-in-out;
+      border-radius: 5px;
+      width: 80%;
+      &:focus {
+        border-color: #b8d1ff;
+      }
+    }
+  }
+  button {
+    background-color: $mainColor;
+    border: none;
+    color: #fff;
+    padding: 5px 30px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: all 0.2s ease-in-out;
+    &:focus {
+      background-color: #98bbfc;
+    }
+  }
+}

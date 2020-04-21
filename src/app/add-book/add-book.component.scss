@@ -1,0 +1,31 @@
+@import "../../assets/sass/variables";
+@import "../../assets/sass/placeholder";
+
+.add-books {
+  padding: 40px 0;
+  h2 {
+    font-weight: bold;
+    font-size: 24px;
+    margin-bottom: 25px;
+  }
+}
+form {
+  @extend %form;
+  .file {
+    width: 300px;
+    text-align: right;
+    outline: none;
+  }
+  .fa-times {
+    background-color: $mainColor;
+    margin-right: 12px;
+    width: 20px;
+    cursor: pointer;
+    height: 20px;
+    text-align: center;
+    line-height: 20px;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 12px;
+  }
+}

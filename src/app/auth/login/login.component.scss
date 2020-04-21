@@ -1,0 +1,8 @@
+@import "../../../assets/sass/variables";
+@import "../../../assets/sass/placeholder";
+form {
+  @extend %form;
+  @media (min-width: 992px) {
+    margin-top: 90px;
+  }
+}

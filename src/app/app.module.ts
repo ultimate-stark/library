@@ -10,6 +10,10 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
 import { BookDetailsComponent } from './book-details/book-details.component';
+import { AuthComponent } from './auth/auth.component';
+import { LoginComponent } from './auth/login/login.component';
+import { SignUpComponent } from './auth/sign-up/sign-up.component';
+import { AddBookComponent } from './add-book/add-book.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +21,11 @@ import { BookDetailsComponent } from './book-details/book-details.component';
     NavbarComponent,
     HomeComponent,
     FooterComponent,
-    BookDetailsComponent
+    BookDetailsComponent,
+    AuthComponent,
+    LoginComponent,
+    SignUpComponent,
+    AddBookComponent
   ],
   imports: [
     BrowserModule,

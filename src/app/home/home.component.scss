@@ -1,0 +1,121 @@
+@import "../../assets/sass/variables";
+.home-page {
+  // Start Home Carousel
+
+  .activeHomeCarousel {
+    opacity: 1 !important;
+  }
+  .home-carousel {
+    position: relative;
+    .items {
+      height: 400px;
+      .item {
+        position: absolute;
+        background-size: cover;
+        width: 100%;
+        transition: all 0.5s ease-in-out;
+        opacity: 0;
+        height: 100%;
+        &:first-child {
+          background-image: url("../../assets/imgs/home/carousel1.jpg");
+        }
+        &:nth-child(2) {
+          background-image: url("../../assets/imgs/home/carousel2.jpg");
+        }
+        &:last-child {
+          background-image: url("../../assets/imgs/home/carousel3.jpg");
+        }
+        .overlay {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          left: 0;
+          top: 0;
+          background-color: rgba(0, 0, 0, 0.5);
+          color: #fff;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          .content {
+            h2 {
+              @media (max-width: 767px) {
+                font-size: 19px;
+              }
+              @media (min-width: 768px) and (max-width: 991px) {
+                font-size: 27px;
+              }
+            }
+          }
+        }
+      }
+    }
+    i {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 30px;
+      background-color: $mainColor;
+      transition: all 0.2s ease-in-out;
+      color: #fff;
+      border-radius: 50%;
+      cursor: pointer;
+      height: 30px;
+      text-align: center;
+      line-height: 30px;
+      font-size: 18px;
+      @media (max-width: 767px) {
+        width: 25px;
+        height: 25px;
+        line-height: 25px;
+        font-size: 14px;
+      }
+      &:hover {
+        background-color: #8eb0ed;
+      }
+      &.fa-chevron-left {
+        left: 30px;
+      }
+      &.fa-chevron-right {
+        right: 30px;
+      }
+    }
+  }
+  // End Home Carousel
+
+  // Start Home Books
+  .home-books {
+    padding: 40px 0;
+    h2 {
+      font-weight: bold;
+      font-size: 22px;
+    }
+    img {
+      width: 100%;
+      transition: all 0.3s ease-in-out;
+      cursor: pointer;
+      &:hover {
+        box-shadow: 1px 1px 20px 0px #a5a5a5;
+        transform: scale(0.95);
+      }
+    }
+    .contain-books {
+      @media (min-width: 768px) {
+        &:not(:last-child) {
+          margin-bottom: 40px;
+        }
+      }
+      .book {
+        @media (max-width: 767px) {
+          margin-bottom: 20px;
+        }
+        @media (max-width: 576px) {
+          text-align: center;
+          img {
+            width: 200px;
+          }
+        }
+      }
+    }
+  }
+  // End Home Books
+}

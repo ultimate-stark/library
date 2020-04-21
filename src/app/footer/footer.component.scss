@@ -1,0 +1,65 @@
+@import "../../assets/sass/variables";
+@import "../../assets/sass/placeholder";
+footer {
+  background-color: $mainColor;
+  color: #fff;
+  padding-top: 40px;
+  .social-links {
+    @media (max-width: 991px) {
+      margin-bottom: 30px;
+    }
+    li {
+      display: inline-block;
+      cursor: pointer;
+      &:not(:last-child) {
+        margin-left: 20px;
+      }
+      @each $val, $color in (facebook-f, #1877f2), (twitter, #1da1f2),
+        (instagram, #c32aa3)
+      {
+        .fa-#{$val} {
+          transition: all 0.2s ease-in-out;
+        }
+      }
+      &:hover {
+        @each $val, $color in (facebook-f, #1877f2), (twitter, #1da1f2),
+          (instagram, #c32aa3)
+        {
+          .fa-#{$val} {
+            color: $color;
+          }
+        }
+      }
+    }
+  }
+  .books,
+  .links,
+  .questions {
+    @extend %links;
+    &:not(.questions) {
+      @media (max-width: 991px) {
+        margin-bottom: 30px;
+      }
+    }
+  }
+  .questions {
+    li {
+      i {
+        width: 25px;
+        height: 25px;
+        line-height: 25px;
+      }
+      a {
+        &:after {
+          display: none;
+        }
+      }
+    }
+  }
+  .footer-end {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+  }
+}

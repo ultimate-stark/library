@@ -1,0 +1,33 @@
+<nav class="navbar navbar-expand-lg navbar-light rtl fixed-top" #mainNavbar>
+  <div class="container">
+    <a class="navbar-brand" href="#">مكتبتي</a>
+    <div class="burger" (click)="toggleNav(navbar)">
+      <div class="burger-top"></div>
+      <div class="burger-middle"></div>
+      <div class="burger-bottom"></div>
+    </div>
+
+    <div class="navbar-collapse" #navbar>
+      <i class="fas fa-times" (click)="toggleNav(navbar)"></i>
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item input-search">
+          <a class="nav-link">
+            <div class="buttons">
+              <button class="activeBtnSearch">بحث بأسم الكتاب</button>
+              <button>بحث بأسم المؤلف</button>
+              <button>بحث بدار النشر</button>
+            </div>
+            <div class="loading"></div>
+            <input type="text" placeholder="ادخل ما تريد">
+          </a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="#">الدخول</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">التسجيل</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

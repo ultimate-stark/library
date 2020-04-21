@@ -1,0 +1,33 @@
+%links {
+  li {
+    cursor: pointer;
+    &:not(:last-child) {
+      margin-bottom: 10px;
+    }
+    &:hover {
+      a {
+        color: #efefef;
+        &:after {
+          width: 100%;
+        }
+      }
+    }
+    a {
+      position: relative;
+      color: #fff;
+      transition: all 0.3s ease-in-out;
+      padding-bottom: 3px;
+      text-decoration: none;
+      &:after {
+        transition: all 0.3s ease-in-out;
+        position: absolute;
+        content: "";
+        width: 0%;
+        height: 2px;
+        background-color: #fff;
+        left: 0;
+        bottom: 0;
+      }
+    }
+  }
+}

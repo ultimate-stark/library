@@ -1,21 +1,15 @@
+$marginCarousel: 20px;
+
 .book-details {
   padding: 40px 0;
-  @media (max-width: 991px) {
-    margin: 55.6px;
-  }
-  @media (min-width: 992px) {
-    margin-top: 72px;
-  }
   .book {
     display: flex;
-    @media (max-width: 576px) {
+    align-items: center;
+    @media (max-width: 991px) {
       flex-direction: column;
       text-align: center;
     }
     .book-img {
-      @media (min-width: 577px) {
-        margin-left: 60px;
-      }
       img {
         width: 200px !important;
         @media (max-width: 776px) {
@@ -23,22 +17,36 @@
           margin-top: 4px;
         }
       }
+      button {
+        display: block;
+        width: 100%;
+        margin-top: 10px !important;
+        @media (max-width: 767px) {
+          width: 100px;
+          font-size: 9px;
+          margin: auto;
+        }
+        @media (min-width: 768px) and (max-width: 991px) {
+          font-size: 13px;
+          font-weight: bold;
+        }
+      }
     }
     .about-book {
       display: flex;
       align-items: center;
-      @media (max-width: 577px) {
+      @media (max-width: 991px) {
         margin-top: 20px !important;
+      }
+      @media (min-width: 992px) {
+        margin-right: 60px;
       }
       .about-book-child {
         h2 {
           font-weight: bold;
           font-size: 22px;
-          margin-bottom: 4px;
           color: #626262;
-          @media (max-width: 776px) {
-            font-size: 14px;
-          }
+          margin-bottom: 15px;
         }
         span {
           color: #6fa1fc;
@@ -52,75 +60,98 @@
           color: #707070;
           max-width: 550px;
           font-weight: bold;
-          font-size: 13px;
           letter-spacing: 1px;
-          margin-top: 10px;
-          @media (max-width: 500px) {
-            font-size: 12px;
-          }
-          @media (min-width: 501px) and (max-width: 776px) {
-            font-size: 10px;
+          margin-top: 15px;
+          @media (min-width: 992px) {
+            font-size: 17px;
+            line-height: 30px;
           }
         }
+      }
+    }
+    .buttons {
+      width: 500px;
+      display: flex;
+      justify-content: flex-end;
+      @media (max-width: 991px) {
+        width: auto;
+        margin-top: 25px;
+      }
+      button {
+        @media (max-width: 767px) {
+          font-size: 9px;
+        }
+      }
+      .btn-primary {
+        margin-left: 8px;
       }
     }
   }
 
   // Books Like
-
-  .book-like {
-    position: relative;
-    margin: auto;
-    @media (min-width: 768px) and (max-width: 991px) {
-      width: 400px;
-    }
-    @media (min-width: 992px) {
-      width: 650px;
-    }
-    .image-carousel {
-      overflow: hidden;
-      margin-top: 60px;
-      .inner {
-        display: flex;
-        height: 300px;
-        transition: all 0.5s ease-in-out;
-        @media (max-width: 991px) {
-          height: 150px;
-        }
-        img {
-          min-width: calc(100% / 3);
-        }
+  .books-like {
+    margin-top: 80px;
+    h2 {
+      font-size: 30px;
+      font-weight: bold;
+      @media (max-width: 767px) {
+        font-size: 20px;
       }
-      i {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        background-color: #6fa1fc;
-        color: #fff;
-        font-size: 23px;
-        cursor: pointer;
-        transition: all 0.2s ease-in-out;
-        padding: 10px 15px;
-        border-radius: 50%;
-        @media (max-width: 576px) {
-          padding: 2px 6px;
-        }
-        @media (min-width: 577px) and (max-width: 991px) {
-          padding: 7px 10px;
-        }
-        &:hover {
-          background-color: #9abbf8;
-        }
-        &.fa-angle-left {
-          left: -55px;
-          @media (max-width: 576px) {
-            left: -35px;
+      @media (min-width: 768px) and (max-width: 991px) {
+        font-size: 25px;
+      }
+    }
+    .book-carousel {
+      position: relative;
+      margin: auto;
+      margin-top: 60px;
+      width: 1000px;
+      @media (max-width: 767px) {
+        width: 700px;
+      }
+      .image-carousel {
+        overflow: hidden;
+        .inner {
+          // overflow: hidden;
+          display: flex;
+          height: 190px;
+          transition: all 0.5s ease-in-out;
+          @media (max-width: 767px) {
+            height: 100px;
+          }
+          img {
+            cursor: pointer;
+            min-width: calc((100% / 7) - 20px);
+            &:not(:last-child) {
+              margin-left: $marginCarousel;
+            }
           }
         }
-        &.fa-angle-right {
-          right: -55px;
+        i {
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          background-color: #6fa1fc;
+          color: #fff;
+          font-size: 23px;
+          cursor: pointer;
+          transition: all 0.2s ease-in-out;
+          padding: 10px 15px;
+          border-radius: 50%;
           @media (max-width: 576px) {
-            right: -35px;
+            padding: 2px 6px;
+          }
+          @media (min-width: 577px) and (max-width: 991px) {
+            padding: 7px 10px;
+          }
+          &:hover {
+            background-color: #9abbf8;
+          }
+          &.fa-angle-left {
+            left: -45px;
+          }
+          &.fa-angle-right {
+            right: calc(-45px - #{$marginCarousel});
           }
         }
       }

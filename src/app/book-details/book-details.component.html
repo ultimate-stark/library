@@ -4,6 +4,7 @@
     <div class="book">
       <div class="book-img animated bounceInRight">
         <img src="../../../../assets/imgs/american.webp" alt="">
+        <button class="btn btn-success">تحميل الكتاب</button>
       </div>
       <div class="about-book wow fadeIn" data-wow-duration="2s">
         <div class="about-book-child">
@@ -15,29 +16,36 @@
           </p>
         </div>
       </div>
+      <div class="buttons">
+        <button class="btn btn-primary">تعديل الكتاب</button>
+        <button class="btn btn-danger">ازالة الكتاب</button>
+      </div>
     </div>
     <!--End Book-->
 
     <!--Start Like Books-->
-    <div class="book-like animated slideInUp">
-      <div class="image-carousel">
-        <div class="inner" #innerCarousel>
-          <img src="../../assets/imgs/1.jpg" alt="">
-          <img src="../../assets/imgs/2.jpg" alt="">
-          <img src="../../assets/imgs/3.jpg" alt="">
-          <img src="../../assets/imgs/4.jpg" alt="">
-          <img src="../../assets/imgs/5.jpg" alt="">
-          <img src="../../assets/imgs/6.jpg" alt="">
-          <img src="../../assets/imgs/7.jpg" alt="">
-          <img src="../../assets/imgs/8.jpg" alt="">
-          <img src="../../assets/imgs/10.jpg" alt="">
-          <img src="../../assets/imgs/9.jpg" alt="">
-          <img src="../../assets/imgs/11.jpg" alt="">
-          <img src="../../assets/imgs/12.jpg" alt="">
+
+    <div class="books-like">
+      <h2 class="h1 text-center">كتب قد تعجبك من نفس الفئة !</h2>
+      <div class="book-carousel animated slideInUp">
+        <div class="image-carousel">
+          <div class="inner" #innerCarousel>
+            <img src="../../assets/imgs/1.jpg" alt="">
+            <img src="../../assets/imgs/2.jpg" alt="">
+            <img src="../../assets/imgs/3.jpg" alt="">
+            <img src="../../assets/imgs/4.jpg" alt="">
+            <img src="../../assets/imgs/5.jpg" alt="">
+            <img src="../../assets/imgs/6.jpg" alt="">
+            <img src="../../assets/imgs/7.jpg" alt="">
+            <img src="../../assets/imgs/8.jpg" alt="">
+            <img src="../../assets/imgs/10.jpg" alt="">
+            <img src="../../assets/imgs/9.jpg" alt="">
+            <img src="../../assets/imgs/11.jpg" alt="">
+            <img src="../../assets/imgs/12.jpg" alt="">
+          </div>
+          <i class="fas fa-angle-left" (click)="prevFn()"></i>
+          <i class="fas fa-angle-right" (click)="nextFn()"></i>
         </div>
-        <div class="bubbles"></div>
-        <i class="fas fa-angle-left" (click)="prevFn()"></i>
-        <i class="fas fa-angle-right" (click)="nextFn()"></i>
       </div>
     </div>
     <!--End Like Books-->

@@ -9,9 +9,11 @@ import { NgwWowService } from 'ngx-wow';
 export class BookDetailsComponent implements OnInit {
 
 
+  imgWidth: number;
   currentIndexImg: number = 0;
-  size;
-  innerChildNodesLength;
+  margin: number = 20;
+  size: number = this.imgWidth + this.margin;
+  innerChildNodesLength: number;
   @ViewChild('innerCarousel', { static: true }) innerCarousel: ElementRef;
   constructor(private wowService: NgwWowService) { }
 
@@ -20,7 +22,7 @@ export class BookDetailsComponent implements OnInit {
   }
   ngAfterViewInit() {
     this.doSlider();
-    this.intervalFn();
+    // this.intervalFn();
   }
 
   intervalFn() {
@@ -32,7 +34,8 @@ export class BookDetailsComponent implements OnInit {
   // Make the slider
   doSlider() {
     let inner = (this.innerCarousel.nativeElement as HTMLElement);
-    this.size = (inner.childNodes[0] as HTMLElement).clientWidth;
+    this.imgWidth = (inner.childNodes[0] as HTMLElement).clientWidth;
+    this.size = this.imgWidth + this.margin;
     this.innerChildNodesLength = inner.childNodes.length;
     inner.style.transform = `translateX(${this.size * this.currentIndexImg}px)`;
   }
@@ -40,8 +43,12 @@ export class BookDetailsComponent implements OnInit {
   // Previous Fn
   prevFn() {
     this.currentIndexImg++
-    if (this.currentIndexImg == this.innerChildNodesLength - 2) {
+    console.log(this.currentIndexImg)
+
+    // to get the index of current img you want to show (get imgs length - 1)
+    if (this.currentIndexImg == this.innerChildNodesLength - 6) {
       this.currentIndexImg = 0;
+      console.log('yes')
     }
     this.doSlider()
   }
@@ -50,8 +57,10 @@ export class BookDetailsComponent implements OnInit {
   nextFn() {
     this.currentIndexImg--
     console.log(this.currentIndexImg)
+    // to get the index of current img you want to show (get imgs length - 1)
     if (this.currentIndexImg < 0) {
-      this.currentIndexImg = this.innerChildNodesLength - 3;
+      this.currentIndexImg = this.innerChildNodesLength - 7;
+      console.log('asdas', this.currentIndexImg)
     }
     this.doSlider()
   }

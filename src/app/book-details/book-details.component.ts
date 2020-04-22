@@ -22,7 +22,7 @@ export class BookDetailsComponent implements OnInit {
   }
   ngAfterViewInit() {
     this.doSlider();
-    // this.intervalFn();
+    this.intervalFn();
   }
 
   intervalFn() {

@@ -25,9 +25,9 @@
 
     <!--Start Like Books-->
 
-    <div class="books-like">
+    <div class="books-like animated slideInUp">
       <h2 class="h1 text-center">كتب قد تعجبك من نفس الفئة !</h2>
-      <div class="book-carousel animated slideInUp">
+      <div class="book-carousel">
         <div class="image-carousel">
           <div class="inner" #innerCarousel>
             <img src="../../assets/imgs/1.jpg" alt="">
@@ -43,9 +43,9 @@
             <img src="../../assets/imgs/11.jpg" alt="">
             <img src="../../assets/imgs/12.jpg" alt="">
           </div>
-          <i class="fas fa-angle-left" (click)="prevFn()"></i>
-          <i class="fas fa-angle-right" (click)="nextFn()"></i>
         </div>
+        <i class="fas fa-angle-left" (click)="prevFn()"></i>
+        <i class="fas fa-angle-right" (click)="nextFn()"></i>
       </div>
     </div>
     <!--End Like Books-->
@@ -56,7 +56,7 @@
         <div class="profile-comment wow slideInRight" data-wow-offset="300">
           <img src="../../../../assets/imgs/review-img.png" alt="">
         </div>
-        <div class="go-to-comment wow bounceIn" data-wow-offset="300">
+        <div class="go-to-comment wow fadeIn" data-wow-offset="300">
           <h6>محمد احمد عبد المنعم</h6>
           <input placeholder="ارسل تعليقك" maxlength="100">
           <button>اتمام التعليق</button>

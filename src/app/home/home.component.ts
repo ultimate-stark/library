@@ -1,4 +1,5 @@
 import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
+import { NgwWowService } from 'ngx-wow';
 
 @Component({
   selector: 'app-home',
@@ -12,9 +13,10 @@ export class HomeComponent implements OnInit {
   carouselImgs;
   @ViewChild('homeCarousel', { static: true }) homeCarousel: ElementRef;
 
-  constructor() { }
+  constructor(private wowService: NgwWowService) { }
 
   ngOnInit(): void {
+    this.wowService.init();
   }
 
   ngAfterViewInit() {

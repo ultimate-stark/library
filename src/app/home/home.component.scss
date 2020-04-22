@@ -38,6 +38,11 @@
           align-items: center;
           .content {
             h2 {
+              @media (max-width: 576px) {
+                line-height: 27px;
+                max-width: 200px;
+                text-align: center;
+              }
               @media (max-width: 767px) {
                 font-size: 19px;
               }

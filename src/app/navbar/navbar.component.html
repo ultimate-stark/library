@@ -1,6 +1,6 @@
-<nav class="navbar navbar-expand-lg navbar-light rtl fixed-top" #mainNavbar>
+<nav class="navbar navbar-expand-lg navbar-light rtl fixed-top animated fadeInDown" #mainNavbar>
   <div class="container">
-    <a class="navbar-brand" href="#">مكتبتي</a>
+    <a class="navbar-brand">مكتبتي</a>
     <div class="burger" (click)="toggleNav(navbar)">
       <div class="burger-top"></div>
       <div class="burger-middle"></div>
@@ -12,13 +12,13 @@
       <ul class="navbar-nav ml-auto">
         <li class="nav-item input-search">
           <a class="nav-link">
-            <div class="buttons">
+            <div class="buttons" #viewButtons>
               <button class="activeBtnSearch">بحث بأسم الكتاب</button>
               <button>بحث بأسم المؤلف</button>
               <button>بحث بدار النشر</button>
             </div>
             <div class="loading"></div>
-            <input type="text" placeholder="ادخل ما تريد">
+            <input type="text" placeholder="بحث بأسم الكتاب" #viewInput>
           </a>
         </li>
         <li class="nav-item active">

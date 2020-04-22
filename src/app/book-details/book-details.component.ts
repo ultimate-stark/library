@@ -1,4 +1,5 @@
 import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
+import { NgwWowService } from 'ngx-wow';
 
 @Component({
   selector: 'app-book-details',
@@ -9,19 +10,26 @@ export class BookDetailsComponent implements OnInit {
 
 
   currentIndexImg: number = 0;
-
   size;
   innerChildNodesLength;
   @ViewChild('innerCarousel', { static: true }) innerCarousel: ElementRef;
-  constructor() { }
+  constructor(private wowService: NgwWowService) { }
 
   ngOnInit(): void {
+    this.wowService.init()
   }
   ngAfterViewInit() {
     this.doSlider();
-    console.log(this.currentIndexImg)
+    this.intervalFn();
   }
 
+  intervalFn() {
+    setInterval(() => {
+      this.prevFn()
+    }, 8000);
+  }
+
+  // Make the slider
   doSlider() {
     let inner = (this.innerCarousel.nativeElement as HTMLElement);
     this.size = (inner.childNodes[0] as HTMLElement).clientWidth;
@@ -29,15 +37,16 @@ export class BookDetailsComponent implements OnInit {
     inner.style.transform = `translateX(${this.size * this.currentIndexImg}px)`;
   }
 
+  // Previous Fn
   prevFn() {
     this.currentIndexImg++
-    console.log(this.currentIndexImg)
     if (this.currentIndexImg == this.innerChildNodesLength - 2) {
       this.currentIndexImg = 0;
     }
     this.doSlider()
   }
 
+  // Next Fn
   nextFn() {
     this.currentIndexImg--
     console.log(this.currentIndexImg)

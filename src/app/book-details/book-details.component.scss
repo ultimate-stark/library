@@ -171,6 +171,7 @@ $marginCarousel: 20px;
 
           img {
             cursor: pointer;
+            height: 100%;
             min-width: calc((100% / 7) - #{$marginCarousel});
             &:not(:last-child) {
               margin-left: $marginCarousel;

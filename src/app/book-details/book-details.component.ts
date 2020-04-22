@@ -15,6 +15,10 @@ export class BookDetailsComponent implements OnInit {
   size: number = this.imgWidth + this.margin;
   innerChildNodesLength: number;
   @ViewChild('innerCarousel', { static: true }) innerCarousel: ElementRef;
+  @ViewChild('chevLeft', { static: true }) chevLeft: ElementRef;
+  @ViewChild('chevRight', { static: true }) chevRight: ElementRef;
+
+
   constructor(private wowService: NgwWowService) { }
 
   ngOnInit(): void {
@@ -22,13 +26,12 @@ export class BookDetailsComponent implements OnInit {
   }
   ngAfterViewInit() {
     this.doSlider();
-    this.intervalFn();
   }
 
   intervalFn() {
     setInterval(() => {
       this.prevFn()
-    }, 8000);
+    }, 1000);
   }
 
   // Make the slider
@@ -38,6 +41,11 @@ export class BookDetailsComponent implements OnInit {
     this.size = this.imgWidth + this.margin;
     this.innerChildNodesLength = inner.childNodes.length;
     inner.style.transform = `translateX(${this.size * this.currentIndexImg}px)`;
+    if (this.innerChildNodesLength <= 7) {
+      this.chevLeft.nativeElement.style.display = 'none'
+      this.chevRight.nativeElement.style.display = 'none'
+      inner.style.justifyContent = 'center'
+    }
   }
 
   // Previous Fn

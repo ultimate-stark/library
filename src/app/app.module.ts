@@ -15,6 +15,7 @@ import { AuthComponent } from './auth/auth.component';
 import { LoginComponent } from './auth/login/login.component';
 import { SignUpComponent } from './auth/sign-up/sign-up.component';
 import { AddBookComponent } from './add-book/add-book.component';
+import { ChangeThemesComponent } from './change-themes/change-themes.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { AddBookComponent } from './add-book/add-book.component';
     AuthComponent,
     LoginComponent,
     SignUpComponent,
-    AddBookComponent
+    AddBookComponent,
+    ChangeThemesComponent
   ],
   imports: [
     BrowserModule,

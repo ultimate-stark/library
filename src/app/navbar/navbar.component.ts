@@ -21,7 +21,6 @@ export class NavbarComponent implements OnInit, AfterViewInit {
   ngAfterViewInit() {
     let buttons = this.viewButtons.nativeElement.childNodes;
     let input = (this.viewInput.nativeElement as HTMLInputElement);
-    console.log(input)
     buttons.forEach(button => {
       let childBtn = button as HTMLElement;
       childBtn.addEventListener('click', () => {

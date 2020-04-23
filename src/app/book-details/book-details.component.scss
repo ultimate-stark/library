@@ -183,7 +183,7 @@ $marginCarousel: 20px;
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
-        background-color: #6fa1fc;
+        background-color: var(--mainColor);
         color: #fff;
         font-size: 23px;
         cursor: pointer;
@@ -258,7 +258,7 @@ $marginCarousel: 20px;
           height: 60px;
           border: none;
           transition: all 0.1s ease-in-out;
-          border: 2px solid #6fa1fc;
+          border: 2px solid var(--mainColor);
           padding: 0px 10px;
           border-radius: 15px;
           display: block;
@@ -277,7 +277,7 @@ $marginCarousel: 20px;
         button {
           margin-top: 15px;
           border: none;
-          background-color: #6fa1fc;
+          background-color: var(--mainColor);
           padding: 5px 40px;
           color: #fff;
           outline: none;
@@ -294,8 +294,8 @@ $marginCarousel: 20px;
           }
           &:focus {
             background-color: #fff;
-            color: #6fa1fc;
-            border: 1px solid #6fa1fc;
+            color: var(--mainColor);
+            border: 1px solid var(--mainColor);
           }
         }
       }

@@ -1,7 +1,6 @@
-@import "../../assets/sass/variables";
 @import "../../assets/sass/placeholder";
 footer {
-  background-color: $mainColor;
+  background-color: var(--mainColor);
   color: #fff;
   padding-top: 40px;
   .social-links {

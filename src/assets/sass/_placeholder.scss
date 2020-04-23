@@ -1,3 +1,4 @@
+@import "./variables";
 %links {
   li {
     cursor: pointer;
@@ -38,19 +39,19 @@
   }
   input {
     &:not(.file) {
-      border: 2px solid $mainColor;
+      border: 2px solid var(--mainColor);
       outline: none;
       padding: 6px 10px;
       transition: all 0.2s ease-in-out;
       border-radius: 5px;
       width: 80%;
       &:focus {
-        border-color: #b8d1ff;
+        border-color: var(--secColor);
       }
     }
   }
   button {
-    background-color: $mainColor;
+    background-color: var(--mainColor);
     border: none;
     color: #fff;
     padding: 5px 30px;
@@ -58,7 +59,7 @@
     font-weight: bold;
     transition: all 0.2s ease-in-out;
     &:focus {
-      background-color: #98bbfc;
+      background-color: var(--secColor);
     }
   }
 }

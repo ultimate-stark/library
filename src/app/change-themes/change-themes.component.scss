@@ -1,6 +1,7 @@
 .color-boxs {
   background-color: #fff;
   position: fixed;
+  z-index: 99999999;
   right: 0;
   transition: 0.3s ease-in-out;
   top: 0;

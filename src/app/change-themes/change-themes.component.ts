@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { ThemeService } from '../services/theme.service';
+import { NgwWowService } from 'ngx-wow';
 @Component({
   selector: 'app-change-themes',
   templateUrl: './change-themes.component.html',
@@ -46,22 +47,18 @@ export class ChangeThemesComponent implements OnInit {
   // Set Color's
   setBlueTheme() {
     this.themeService.setBlueTheme();
-    localStorage.setItem('blueTheme', this.themeService.getActiveTheme().name)
   }
 
-  setRedTheme() {
-    this.themeService.setRedTheme();
-    localStorage.setItem('redTheme', this.themeService.getActiveTheme().name)
+  setDarkTheme() {
+    this.themeService.setDarkTheme();
   }
 
   setGreenTheme() {
     this.themeService.setGreenTheme()
-    localStorage.setItem('greenTheme', this.themeService.getActiveTheme().name)
   }
 
   setPurpleTheme() {
-    this.themeService.setPurpleTheme()
-    localStorage.setItem('purpleTheme', this.themeService.getActiveTheme().name)
+    this.themeService.setPurpleTheme();
   }
 
 

@@ -7,7 +7,7 @@ import { NgwWowService } from 'ngx-wow';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-
+  panelOpenState = false;
   carouslLength;
   currentIndexImg: number = 0;
   carouselImgs;

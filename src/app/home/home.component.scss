@@ -86,40 +86,59 @@
   }
   // End Home Carousel
 
-  // Start Home Books
-  .home-books {
-    padding: 40px 0;
-    h2 {
-      font-weight: bold;
-      font-size: 22px;
-    }
-    img {
-      width: 100%;
-      transition: all 0.3s ease-in-out;
-      cursor: pointer;
-      &:hover {
-        box-shadow: 1px 1px 20px 0px #a5a5a5;
-        transform: scale(0.95);
+  // Angular Material
+  ::ng-deep {
+    .aboutSearch {
+      margin-top: 80px !important;
+      z-index: 9999999;
+      overflow: hidden;
+      background-color: #fff;
+      .container {
+        margin-bottom: 80px;
+        margin-top: 80px;
       }
-    }
-    .contain-books {
-      @media (min-width: 768px) {
-        &:not(:last-child) {
-          margin-bottom: 40px;
+      mat-expansion-panel {
+        box-shadow: 1px 1px 10px var(--mainColor);
+        mat-expansion-panel-header {
+          padding: 0;
+          height: 120px !important;
+          padding-left: 25px;
+          mat-panel-title {
+            margin: 0 !important;
+            align-items: center;
+            img {
+              width: 70px;
+            }
+            .about-search-header-content {
+              margin-right: 10px;
+              font-family: "Tajawal", sans-serif !important;
+              h6 {
+                font-weight: bold;
+                color: #535353;
+              }
+            }
+          }
+          .mat-expansion-indicator {
+            &:after {
+              color: var(--mainColor) !important;
+            }
+          }
         }
-      }
-      .book {
-        @media (max-width: 767px) {
-          margin-bottom: 20px;
-        }
-        @media (max-width: 576px) {
-          text-align: center;
-          img {
-            width: 200px;
+        .mat-expansion-panel-content {
+          height: 100px;
+          .mat-expansion-panel-body {
+            margin-bottom: 5px;
+            box-shadow: 2px 6px 9px var(--secColor);
+            padding: 0 !important;
+            height: 100%;
+            .content {
+              font-family: "Tajawal", sans-serif !important;
+              padding: 10px;
+              height: 100%;
+            }
           }
         }
       }
     }
   }
-  // End Home Books
 }

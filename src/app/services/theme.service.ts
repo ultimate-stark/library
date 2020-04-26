@@ -1,12 +1,15 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { Theme, blue, dark, green, purple } from '../theme';
 @Injectable({
   providedIn: 'root'
 })
-export class ThemeService {
+export class ThemeService implements OnInit {
   private active: Theme = blue;
   private availableThemes: Theme[] = [blue, dark, green, purple];
 
+
+  ngOnInit() {
+  }
   getAvailableThemes(): Theme[] {
     return this.availableThemes;
   }
@@ -18,7 +21,7 @@ export class ThemeService {
   setBlueTheme(): void {
     this.setActiveTheme(blue);
   }
-  setRedTheme(): void {
+  setDarkTheme(): void {
     this.setActiveTheme(dark);
   }
   setGreenTheme(): void {

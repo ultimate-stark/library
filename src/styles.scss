@@ -9,7 +9,7 @@
 @import "./assets/sass/placeholder";
 
 body {
-  font-family: "Tajawal", sans-serif;
+  font-family: "Tajawal", sans-serif !important;
   overflow-x: hidden;
 }
 
@@ -25,4 +25,13 @@ ul {
   @media (min-width: 992px) {
     margin-top: 72px;
   }
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
 }

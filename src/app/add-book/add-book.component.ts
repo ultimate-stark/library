@@ -1,4 +1,5 @@
 import { Component, OnInit, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
+import { NgwWowService } from 'ngx-wow';
 
 @Component({
   selector: 'app-add-book',
@@ -10,10 +11,10 @@ export class AddBookComponent implements OnInit, AfterViewInit {
   mainFile;
   @ViewChild('viewMainFile', { static: false }) viewMainFile: ElementRef;
 
-  constructor() { }
+  constructor(private wowService: NgwWowService) { }
 
   ngOnInit() {
-
+    this.wowService.init();
   }
 
   ngAfterViewInit() {

@@ -1,49 +1,57 @@
-import { Component, OnInit, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss']
 })
-export class NavbarComponent implements OnInit, AfterViewInit {
+export class NavbarComponent implements OnInit {
 
-  @ViewChild('viewButtons', { static: true }) viewButtons: ElementRef;
-  @ViewChild('viewInput', { static: true }) viewInput: ElementRef;
+  @ViewChild('aboutSearch', { static: true }) aboutSearch: ElementRef;
 
   isNavShowing: boolean = false;
+  isShowingbuttonSearchChild: boolean = false;
   constructor() { }
 
   ngOnInit(): void {
 
   }
 
-
-  ngAfterViewInit() {
-    let buttons = this.viewButtons.nativeElement.childNodes;
-    let input = (this.viewInput.nativeElement as HTMLInputElement);
-    buttons.forEach(button => {
-      let childBtn = button as HTMLElement;
-      childBtn.addEventListener('click', () => {
-        for (let i = 0; i < buttons.length; i++) {
-          buttons[i].classList.remove('activeBtnSearch')
-        }
-        button.classList.add('activeBtnSearch')
-        if (childBtn.classList.contains('activeBtnSearch')) {
-          input.setAttribute('placeholder', childBtn.innerHTML)
-        }
-      })
-    })
+  // زرار البحث المتقدم
+  showBtnSearchChild(buttonSearchChild, button) {
+    this.isShowingbuttonSearchChild = !this.isShowingbuttonSearchChild;
+    if (this.isShowingbuttonSearchChild == true) {
+      buttonSearchChild.style.display = 'block';
+      button.classList.add('activeBtn');
+    } else {
+      buttonSearchChild.style.display = 'none';
+      button.classList.remove('activeBtn');
+    }
   }
 
 
+  // اظهار نتائج البحث
+  showAboutSearch(aboutSearch, e) {
+    let search = (aboutSearch as HTMLElement),
+      input = (e.target as HTMLInputElement);
+    if (input.value == '') {
+      search.style.display = 'none';
+    } else {
+      search.style.display = 'block';
+    }
+  }
+
+
+  // toggle Navbar
   toggleNav(navbar) {
     this.isNavShowing = !this.isNavShowing;
     let nav = (navbar as HTMLElement);
-    console.log(nav.clientWidth)
+    console.log(nav.clientWidth);
     if (this.isNavShowing == true) {
       nav.style.right = '0';
     } else {
       nav.style.right = '-100%';
+      this.aboutSearch.nativeElement.style.display = 'none';
     }
   }
 

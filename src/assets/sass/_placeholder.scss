@@ -33,27 +33,36 @@
   }
 }
 
+%input {
+  border: 2px solid var(--mainColor);
+  outline: none;
+  padding: 6px 10px;
+  transition: all 0.2s ease-in-out;
+  border-radius: 5px;
+  width: 80%;
+  &:focus {
+    border-color: var(--inputFocusColor);
+  }
+}
+
 %form {
   label {
     display: block;
   }
   input {
     &:not(.file) {
-      border: 2px solid var(--mainColor);
-      outline: none;
-      padding: 6px 10px;
-      transition: all 0.2s ease-in-out;
-      border-radius: 5px;
-      width: 80%;
-      &:focus {
-        border-color: var(--secColor);
-      }
+      @extend %input;
     }
+  }
+  textarea {
+    @extend %input;
+    height: 100px;
   }
   button {
     background-color: var(--mainColor);
     border: none;
     color: #fff;
+    outline: none;
     padding: 5px 30px;
     border-radius: 5px;
     font-weight: bold;

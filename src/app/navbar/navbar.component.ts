@@ -30,16 +30,6 @@ export class NavbarComponent implements OnInit {
   }
 
 
-  // اظهار نتائج البحث
-  showAboutSearch(aboutSearch, e) {
-    let search = (aboutSearch as HTMLElement),
-      input = (e.target as HTMLInputElement);
-    if (input.value == '') {
-      search.style.display = 'none';
-    } else {
-      search.style.display = 'block';
-    }
-  }
 
 
   // toggle Navbar

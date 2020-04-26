@@ -8,6 +8,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTabsModule } from '@angular/material/tabs';
+import { MatSliderModule } from '@angular/material/slider';
 
 
 
@@ -55,7 +56,8 @@ import { ReactiveFormsModule } from '@angular/forms'
     MatStepperModule,
     MatInputModule,
     MatButtonModule,
-    MatTabsModule
+    MatTabsModule,
+    MatSliderModule
   ],
   providers: [],
   bootstrap: [AppComponent]

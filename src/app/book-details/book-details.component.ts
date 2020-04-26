@@ -10,29 +10,29 @@ export class BookDetailsComponent implements OnInit {
 
 
   isMute: boolean = false;
-  songs = [
+  audios = [
     {
-      songName: "سندباد بابلو",
-      songSrc: "../../assets/audio/MARWAN PABLO - SINdBAD (Official Video Clip) _ (مر(MP3_160K).mp3",
-      song: new Audio(),
+      audioName: "سندباد بابلو",
+      audioSrc: "../../assets/audio/MARWAN PABLO - SINdBAD (Official Video Clip) _ (مر(MP3_160K).mp3",
+      audio: new Audio(),
       totalMin: `00`,
       currentMin: `00`,
       totalSec: `00`,
       currentSec: `00`
     },
     {
-      songName: "مروان بابلو لو (لو تتجنن تبقى فري)",
-      songSrc: "../../assets/audio/MARWAN PABLO x MOLOTOF - FREE (Official Music Vide(MP3_160K).mp3",
-      song: new Audio(),
+      audioName: "مروان بابلو لو (لو تتجنن تبقى فري)",
+      audioSrc: "../../assets/audio/MARWAN PABLO x MOLOTOF - FREE (Official Music Vide(MP3_160K).mp3",
+      audio: new Audio(),
       totalMin: `00`,
       currentMin: `00`,
       totalSec: `00`,
       currentSec: `00`
     },
     {
-      songName: "ويجز على راحتي",
-      songSrc: "../../assets/audio/Wegz - 3la Ra7ty _ ويجز - علي راحتي prod. DJ Totti(MP3_160K).mp3",
-      song: new Audio(),
+      audioName: "ويجز على راحتي",
+      audioSrc: "../../assets/audio/Wegz - 3la Ra7ty _ ويجز - علي راحتي prod. DJ Totti(MP3_160K).mp3",
+      audio: new Audio(),
       totalMin: `00`,
       currentMin: `00`,
       totalSec: `00`,
@@ -40,29 +40,39 @@ export class BookDetailsComponent implements OnInit {
     }
   ];
 
+  currentMin;
 
-  @ViewChild('audios', { static: true }) audios: ElementRef;
+  @ViewChild('viewAudios', { static: true }) viewAudios: ElementRef;
 
   constructor(private wowService: NgwWowService) { }
 
   ngOnInit(): void {
     this.wowService.init();
     // Set Source To Song
-    for (let i = 0; i < this.songs.length; i++) {
-      this.songs[i].song.src = this.songs[i].songSrc;
+    for (let i = 0; i < this.audios.length; i++) {
+      this.audios[i].audio.src = this.audios[i].audioSrc;
+      this.audios[i].audio.addEventListener('loadedmetadata', () => {
+        this.audios[i].currentMin = this.smartTime(Math.floor(this.audios[i].audio.currentTime / 60));
+        this.audios[i].totalMin = this.smartTime(Math.floor(this.audios[i].audio.duration / 60));
+
+        // Seceonds
+        this.audios[i].currentSec = this.smartTime(Math.floor(this.audios[i].audio.currentTime % 60));
+        this.audios[i].totalSec = this.smartTime(Math.floor(this.audios[i].audio.duration % 60));
+      })
     }
+
   }
 
   // Toggle Play And Pause
-  togglePlayAndPause(i: number, line, overline: HTMLElement, playAndPause: HTMLElement) {
-    if (this.songs[i].song.paused) {
+  togglePlayAndPause(i: number, playAndPause: HTMLElement) {
+    if (this.audios[i].audio.paused) {
       playAndPause.classList.replace('fa-play', 'fa-pause');
-      this.songs[i].song.play();
+      this.audios[i].audio.play();
       // Line Fn
-      this.timeUpdate(i, line, overline, playAndPause);
+      this.timeUpdate(i, playAndPause);
     } else {
       playAndPause.classList.replace('fa-pause', 'fa-play');
-      this.songs[i].song.pause();
+      this.audios[i].audio.pause();
     }
   }
 
@@ -71,10 +81,10 @@ export class BookDetailsComponent implements OnInit {
     this.isMute = !this.isMute;
     if (this.isMute == true) {
       volume.classList.replace('fa-volume-up', 'fa-volume-mute');
-      this.songs[i].song.muted = true;
+      this.audios[i].audio.muted = true;
     } else {
       volume.classList.replace('fa-volume-mute', 'fa-volume-up')
-      this.songs[i].song.muted = false;
+      this.audios[i].audio.muted = false;
     }
 
   }
@@ -82,38 +92,25 @@ export class BookDetailsComponent implements OnInit {
 
   // Time Update
 
-  timeUpdate(i: number, line, overline: HTMLElement, playAndPause: HTMLElement) {
+  timeUpdate(i: number, playAndPause: HTMLElement) {
 
-    // Update Line
-    this.songs[i].song.addEventListener('timeupdate', () => {
-      overline.style.width = (this.songs[i].song.currentTime / this.songs[i].song.duration * 100) + '%';
-    })
 
     // Update Time
-    this.songs[i].song.addEventListener('timeupdate', () => {
+    this.audios[i].audio.addEventListener('timeupdate', () => {
       // Minutes
-      this.songs[i].currentMin = this.smartTime(Math.floor(this.songs[i].song.currentTime / 60));
-      this.songs[i].totalMin = this.smartTime(Math.floor(this.songs[i].song.duration / 60));
+      this.audios[i].currentMin = this.smartTime(Math.floor(this.audios[i].audio.currentTime / 60));
+      this.audios[i].totalMin = this.smartTime(Math.floor(this.audios[i].audio.duration / 60));
 
       // Seceonds
-      this.songs[i].currentSec = this.smartTime(Math.floor(this.songs[i].song.currentTime % 60));
-      this.songs[i].totalSec = this.smartTime(Math.floor(this.songs[i].song.duration % 60));
+      this.audios[i].currentSec = this.smartTime(Math.floor(this.audios[i].audio.currentTime % 60));
+      this.audios[i].totalSec = this.smartTime(Math.floor(this.audios[i].audio.duration % 60));
 
-      if (this.songs[i].song.ended) {
+      if (this.audios[i].audio.ended) {
         playAndPause.classList.replace('fa-pause', 'fa-play');
       }
     })
 
     // Update Line Moving
-
-    // line.addEventListener('mousedown', (e) => {
-    //   let clickedPosition = (e.clientX - e.target.offsetLeft);
-    //   this.songs[i].song.currentTime = (clickedPosition / e.target.offsetWidth) * this.songs[i].song.duration;
-    // })
-
-
-
-
 
 
 
@@ -123,45 +120,9 @@ export class BookDetailsComponent implements OnInit {
     return time < 10 ? "0" + time.toString().trim() : time
   }
 
-
-
-
-
-
-
-
-
-  // Time Update Function
-  // timeUpdate() {
-
-  //   this.line.nativeElement.addEventListener('mousedown', (e) => {
-  //     let clickedPosition = (e.clientX - e.target.offsetLeft);
-  //     console.log('clickedPosition', clickedPosition)
-  //     console.log('e.clientX', e.clientX)
-  //     console.log('offsetLeft', e.target.offsetLeft)
-  //     console.log('offsetWidth', e.target.offsetWidth)
-  //     console.log('width', clickedPosition - e.target.offsetWidth)
-  //     // console.log('time', (clickedPosition / e.target.offsetWidth * 100))
-  //     // this.song.currentTime = (clickedPosition / e.target.offsetWidth);
-  //   })
-  // }
-
-
-  // Mute Or No Mute
-
-  // muteOrUnMute(volume) {
-  //   this.isMute = !this.isMute;
-  //   if (this.isMute == true) {
-  //     volume.classList.replace('fa-volume-up', 'fa-volume-mute');
-  //     this.song.muted = true;
-  //   } else {
-  //     this.song.muted = false;
-  //     volume.classList.replace('fa-volume-mute', 'fa-volume-up')
-  //   }
-  // }
-
-
-
+  updateVolume(volume, i) {
+    this.audios[i].audio.volume = volume.value / 100;
+  }
 
 
 }

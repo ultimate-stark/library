@@ -1,15 +1,14 @@
-import { Injectable, OnInit } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Theme, blue, dark, green, purple } from '../theme';
 @Injectable({
   providedIn: 'root'
 })
-export class ThemeService implements OnInit {
+export class ThemeService {
   private active: Theme = blue;
   private availableThemes: Theme[] = [blue, dark, green, purple];
 
 
-  ngOnInit() {
-  }
+
   getAvailableThemes(): Theme[] {
     return this.availableThemes;
   }
@@ -34,12 +33,11 @@ export class ThemeService implements OnInit {
 
   setActiveTheme(theme: Theme): void {
     this.active = theme;
-
     Object.keys(this.active.properties).forEach(property => {
       document.documentElement.style.setProperty(
         property,
         this.active.properties[property]
-      );
-    });
+      )
+    })
   }
 }

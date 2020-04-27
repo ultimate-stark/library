@@ -114,6 +114,7 @@
       }
     }
 
+    // Audios
     .audios {
       .audio {
         display: flex;
@@ -134,7 +135,6 @@
         // Custom Audio
         .custom-audio {
           display: flex;
-          height: 65px;
           border-radius: 50px;
           margin-top: 7px;
           padding: 12px;
@@ -142,9 +142,7 @@
           background-color: var(--mainColor);
           color: #fff;
           justify-content: space-around;
-          @media (min-width: 1200px) {
-            width: 420px;
-          }
+          width: 420px !important;
 
           // Iphone 5, SE
           @media (min-width: 320px) and (max-height: 568px) {
@@ -163,6 +161,10 @@
           // Iphone X,6,7,8
           @media (min-width: 375px) and (max-height: 812px) {
             height: 40px;
+          }
+          @media (min-width: 1200px) {
+            width: 420px;
+            height: 65px;
           }
           .currentTime {
             // Iphone 5, SE
@@ -377,7 +379,7 @@
             width: 100%;
           }
           &:focus {
-            border-color: #b1c1dd;
+            border-color: var(--inputFocusColor);
           }
         }
         button {

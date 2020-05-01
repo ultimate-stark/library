@@ -7,8 +7,6 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  @ViewChild('aboutSearch', { static: true }) aboutSearch: ElementRef;
-
   isNavShowing: boolean = false;
   isShowingbuttonSearchChild: boolean = false;
   constructor() { }
@@ -36,12 +34,10 @@ export class NavbarComponent implements OnInit {
   toggleNav(navbar) {
     this.isNavShowing = !this.isNavShowing;
     let nav = (navbar as HTMLElement);
-    console.log(nav.clientWidth);
     if (this.isNavShowing == true) {
       nav.style.right = '0';
     } else {
       nav.style.right = '-100%';
-      this.aboutSearch.nativeElement.style.display = 'none';
     }
   }
 

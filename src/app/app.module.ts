@@ -23,13 +23,13 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
 import { BookDetailsComponent } from './book-details/book-details.component';
-import { AuthComponent } from './auth/auth.component';
 import { LoginComponent } from './auth/login/login.component';
 import { SignUpComponent } from './auth/sign-up/sign-up.component';
 import { AddBookComponent } from './add-book/add-book.component';
 import { ChangeThemesComponent } from './change-themes/change-themes.component';
 import { FormsModule } from '@angular/forms';
-import { ReactiveFormsModule } from '@angular/forms'
+import { ReactiveFormsModule } from '@angular/forms';
+import { NotFoundComponent } from './not-found/not-found.component'
 
 @NgModule({
   declarations: [
@@ -38,11 +38,11 @@ import { ReactiveFormsModule } from '@angular/forms'
     HomeComponent,
     FooterComponent,
     BookDetailsComponent,
-    AuthComponent,
     LoginComponent,
     SignUpComponent,
     AddBookComponent,
-    ChangeThemesComponent
+    ChangeThemesComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,

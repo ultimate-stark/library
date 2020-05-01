@@ -3,21 +3,21 @@ export interface Theme {
   properties: Object;
 }
 
-export const blue: Theme = {
-  name: "blue",
-  properties: {
-    "--mainColor": "#6fa1fc",
-    "--secColor": "#9fb4d9",
-    "--inputFocusColor": "#b2cbfa"
-  }
-}
-
 export const dark: Theme = {
   name: "dark",
   properties: {
     "--mainColor": "#3c3c3c",
     "--secColor": "#686868",
     "--inputFocusColor": "#c4c4c4"
+  }
+}
+
+export const blue: Theme = {
+  name: "blue",
+  properties: {
+    "--mainColor": "#6fa1fc",
+    "--secColor": "#9fb4d9",
+    "--inputFocusColor": "#b2cbfa"
   }
 }
 

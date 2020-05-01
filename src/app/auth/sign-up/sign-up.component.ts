@@ -12,6 +12,7 @@ export class SignUpComponent implements OnInit {
 
   ngOnInit() {
     this.wowService.init();
+
   }
 
 }

@@ -14,6 +14,9 @@
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
     cursor: pointer;
+    @media (max-width: 991px) {
+      box-shadow: -3px 0px 8px #fff;
+    }
     i {
       padding: 5px;
       color: #fff;
@@ -40,10 +43,10 @@
         margin-left: 10px;
       }
       &:first-child {
-        background-color: var(--blue);
+        background-color: var(--dark);
       }
       &:nth-child(2) {
-        background-color: var(--dark);
+        background-color: var(--blue);
       }
       &:nth-child(3) {
         background-color: var(--green);

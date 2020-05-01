@@ -1,0 +1,11 @@
+.not-found {
+  padding-bottom: 80px;
+  svg {
+    height: 400px !important;
+    width: 100%;
+  }
+  h4 {
+    font-weight: bold;
+    color: var(--mainColor);
+  }
+}

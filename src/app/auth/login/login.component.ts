@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { NgwWowService } from 'ngx-wow';
 
 @Component({
@@ -8,10 +8,12 @@ import { NgwWowService } from 'ngx-wow';
 })
 export class LoginComponent implements OnInit {
 
+
   constructor(private wowService: NgwWowService) { }
 
   ngOnInit() {
     this.wowService.init();
+
   }
 
 }

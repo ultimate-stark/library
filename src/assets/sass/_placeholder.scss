@@ -1,6 +1,7 @@
 @import "./variables";
 %links {
   li {
+    outline: none !important;
     cursor: pointer;
     &:not(:last-child) {
       margin-bottom: 10px;
@@ -46,12 +47,18 @@
 }
 
 %form {
+  @media (max-width: 991px) {
+    margin-top: 40px;
+  }
   label {
     display: block;
   }
   input {
     &:not(.file) {
       @extend %input;
+    }
+    @media (max-width: 991px) {
+      width: 100% !important;
     }
   }
   textarea {

@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light rtl fixed-top animated fadeInDown">
   <div class="container">
-    <a class="navbar-brand">مكتبتي</a>
+    <a class="navbar-brand" routerLink="">مكتبتي</a>
     <div class="burger" (click)="toggleNav(navbar)">
       <div class="burger-top"></div>
       <div class="burger-middle"></div>
@@ -13,7 +13,6 @@
         <li class="nav-item input-search">
           <a class="nav-link">
             <i class="fas fa-search"></i>
-            <div class="loading"></div>
             <input type="text" placeholder="ابحث الذي تريده">
           </a>
         </li>
@@ -29,10 +28,10 @@
           </a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link" href="#">الدخول</a>
+          <a class="nav-link" routerLink="login" routerLinkActive="active-link">الدخول</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">التسجيل</a>
+          <a class="nav-link" routerLink="sign-up" routerLinkActive="active-link">التسجيل</a>
         </li>
       </ul>
     </div>

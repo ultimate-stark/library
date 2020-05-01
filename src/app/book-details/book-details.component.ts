@@ -9,7 +9,65 @@ import { NgwWowService } from 'ngx-wow';
 export class BookDetailsComponent implements OnInit {
 
 
+  // كتب ذات مخطوطات
+  booksWithPlan = [
+    {
+      img: "../../assets/imgs/2.jpg",
+      name: "اسم الكتاب",
+      auther: "المؤلف",
+      bookDetails: "اشتهر شهرة واسعة في النطاق العربي حيث غير كل المفاهيم عن الكتب العامة في ذلك الحين"
+    },
+    {
+      img: "../../assets/imgs/1.jpg",
+      name: "اسم الكتاب",
+      auther: "المؤلف",
+      bookDetails: "اشتهر شهرة واسعة في النطاق العربي حيث غير كل المفاهيم عن الكتب العامة في ذلك الحين"
+    },
+    {
+      img: "../../assets/imgs/3.jpg",
+      name: "اسم الكتاب",
+      auther: "المؤلف",
+      bookDetails: "اشتهر شهرة واسعة في النطاق العربي حيث غير كل المفاهيم عن الكتب العامة في ذلك الحين"
+    },
+    {
+      img: "../../assets/imgs/4.jpg",
+      name: "اسم الكتاب",
+      auther: "المؤلف",
+      bookDetails: "اشتهر شهرة واسعة في النطاق العربي حيث غير كل المفاهيم عن الكتب العامة في ذلك الحين"
+    }
+  ]
+
+  // كتب ذات اضافات
+  booksWithAdditions = [
+    {
+      img: "../../assets/imgs/5.jpg",
+      name: "اسم الكتاب",
+      auther: "المؤلف",
+      bookDetails: "اشتهر شهرة واسعة في النطاق العربي حيث غير كل المفاهيم عن الكتب العامة في ذلك الحين"
+    },
+    {
+      img: "../../assets/imgs/6.jpg",
+      name: "اسم الكتاب",
+      auther: "المؤلف",
+      bookDetails: "اشتهر شهرة واسعة في النطاق العربي حيث غير كل المفاهيم عن الكتب العامة في ذلك الحين"
+    },
+    {
+      img: "../../assets/imgs/7.jpg",
+      name: "اسم الكتاب",
+      auther: "المؤلف",
+      bookDetails: "اشتهر شهرة واسعة في النطاق العربي حيث غير كل المفاهيم عن الكتب العامة في ذلك الحين"
+    },
+    {
+      img: "../../assets/imgs/8.jpg",
+      name: "اسم الكتاب",
+      auther: "المؤلف",
+      bookDetails: "اشتهر شهرة واسعة في النطاق العربي حيث غير كل المفاهيم عن الكتب العامة في ذلك الحين"
+    }
+  ]
+
   isMute: boolean = false;
+
+  // التسجيلات الصوتية
   audios = [
     {
       audioName: "سندباد بابلو",
@@ -48,16 +106,17 @@ export class BookDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.wowService.init();
+    window.addEventListener('load', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      })
+    })
     // Set Source To Song
     for (let i = 0; i < this.audios.length; i++) {
       this.audios[i].audio.src = this.audios[i].audioSrc;
       this.audios[i].audio.addEventListener('loadedmetadata', () => {
-        this.audios[i].currentMin = this.smartTime(Math.floor(this.audios[i].audio.currentTime / 60));
-        this.audios[i].totalMin = this.smartTime(Math.floor(this.audios[i].audio.duration / 60));
-
-        // Seceonds
-        this.audios[i].currentSec = this.smartTime(Math.floor(this.audios[i].audio.currentTime % 60));
-        this.audios[i].totalSec = this.smartTime(Math.floor(this.audios[i].audio.duration % 60));
+        this.getAudioTime(i)
       })
     }
 
@@ -90,21 +149,22 @@ export class BookDetailsComponent implements OnInit {
   }
 
 
+  // Get Audio Time
+  getAudioTime(i: number) {
+    this.audios[i].currentMin = this.smartTime(Math.floor(this.audios[i].audio.currentTime / 60));
+    this.audios[i].totalMin = this.smartTime(Math.floor(this.audios[i].audio.duration / 60));
+
+    // Seceonds
+    this.audios[i].currentSec = this.smartTime(Math.floor(this.audios[i].audio.currentTime % 60));
+    this.audios[i].totalSec = this.smartTime(Math.floor(this.audios[i].audio.duration % 60));
+  }
+
   // Time Update
 
   timeUpdate(i: number, playAndPause: HTMLElement) {
-
-
     // Update Time
     this.audios[i].audio.addEventListener('timeupdate', () => {
-      // Minutes
-      this.audios[i].currentMin = this.smartTime(Math.floor(this.audios[i].audio.currentTime / 60));
-      this.audios[i].totalMin = this.smartTime(Math.floor(this.audios[i].audio.duration / 60));
-
-      // Seceonds
-      this.audios[i].currentSec = this.smartTime(Math.floor(this.audios[i].audio.currentTime % 60));
-      this.audios[i].totalSec = this.smartTime(Math.floor(this.audios[i].audio.duration % 60));
-
+      this.getAudioTime(i)
       if (this.audios[i].audio.ended) {
         playAndPause.classList.replace('fa-pause', 'fa-play');
       }
@@ -120,6 +180,7 @@ export class BookDetailsComponent implements OnInit {
     return time < 10 ? "0" + time.toString().trim() : time
   }
 
+  // Update Volume
   updateVolume(volume, i) {
     this.audios[i].audio.volume = volume.value / 100;
   }

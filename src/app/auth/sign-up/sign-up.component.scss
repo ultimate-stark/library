@@ -1,4 +1,7 @@
 @import "../../../assets/sass/placeholder";
-form {
-  @extend %form;
+.sign-up {
+  padding: 60px 0;
+  form {
+    @extend %form;
+  }
 }

@@ -1,5 +1,7 @@
 import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { NgwWowService } from 'ngx-wow';
+import { BooksService } from '../services/books/books.service';
+import { Book } from '../interfaces/book';
 
 @Component({
   selector: 'app-home',
@@ -7,16 +9,23 @@ import { NgwWowService } from 'ngx-wow';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+
+  books: Book[];
   panelOpenState = false;
   carouslLength;
   currentIndexImg: number = 0;
   carouselImgs;
   @ViewChild('homeCarousel', { static: true }) homeCarousel: ElementRef;
 
-  constructor(private wowService: NgwWowService) { }
+  constructor(private wowService: NgwWowService, private BookService: BooksService) { }
 
   ngOnInit(): void {
     this.wowService.init();
+    this.getAllBooks();
+  }
+
+  getAllBooks() {
+    this.books = this.BookService.books;
   }
 
   ngAfterViewInit() {

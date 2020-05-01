@@ -28,165 +28,59 @@
       <mat-tab-group>
         <mat-tab label="كتب ذات اضافات">
           <mat-accordion class="aboutSearch">
-            <mat-expansion-panel>
+            <h4 *ngIf="booksWithAdditions.length == 0">لا يوجد كتب</h4>
+            <mat-expansion-panel *ngFor="let book of booksWithAdditions;">
               <mat-expansion-panel-header>
                 <mat-panel-title>
                   <div>
-                    <img src="../../assets/imgs/1.jpg" alt="">
+                    <img [src]="book.img" [alt]="book.name">
                   </div>
                   <div class="about-search-header-content">
-                    <h6>اسم الكتاب</h6>
-                    <span>المؤلف</span>
+                    <h6>{{book.name}}</h6>
+                    <span>{{book.auther}}</span>
                   </div>
                 </mat-panel-title>
               </mat-expansion-panel-header>
               <div class="content">
                 <h6>عن الكتاب</h6>
-                <p>جمع حوالي ستمائة ألف حديث. اشتهر شهرة واسعة وأقرّ له أقرانه وشيوخه ومن جاء بعده من العلماء بالتقدّم
-                  والإمامة</p>
-              </div>
-            </mat-expansion-panel>
-            <mat-expansion-panel>
-              <mat-expansion-panel-header>
-                <mat-panel-title>
-                  <div>
-                    <img src="../../assets/imgs/2.jpg" alt="">
-                  </div>
-                  <div class="about-search-header-content">
-                    <h6>اسم الكتاب</h6>
-                    <span>المؤلف</span>
-                  </div>
-                </mat-panel-title>
-              </mat-expansion-panel-header>
-              <div class="content">
-                <h6>عن الكتاب</h6>
-                <p>جمع حوالي ستمائة ألف حديث. اشتهر شهرة واسعة وأقرّ له أقرانه وشيوخه ومن جاء بعده من العلماء بالتقدّم
-                  والإمامة</p>
-              </div>
-            </mat-expansion-panel>
-            <mat-expansion-panel>
-              <mat-expansion-panel-header>
-                <mat-panel-title>
-                  <div>
-                    <img src="../../assets/imgs/6.jpg" alt="">
-                  </div>
-                  <div class="about-search-header-content">
-                    <h6>اسم الكتاب</h6>
-                    <span>المؤلف</span>
-                  </div>
-                </mat-panel-title>
-              </mat-expansion-panel-header>
-              <div class="content">
-                <h6>عن الكتاب</h6>
-                <p>جمع حوالي ستمائة ألف حديث. اشتهر شهرة واسعة وأقرّ له أقرانه وشيوخه ومن جاء بعده من العلماء بالتقدّم
-                  والإمامة</p>
-              </div>
-            </mat-expansion-panel>
-            <mat-expansion-panel>
-              <mat-expansion-panel-header>
-                <mat-panel-title>
-                  <div>
-                    <img src="../../assets/imgs/5.jpg" alt="">
-                  </div>
-                  <div class="about-search-header-content">
-                    <h6>اسم الكتاب</h6>
-                    <span>المؤلف</span>
-                  </div>
-                </mat-panel-title>
-              </mat-expansion-panel-header>
-              <div class="content">
-                <h6>عن الكتاب</h6>
-                <p>جمع حوالي ستمائة ألف حديث. اشتهر شهرة واسعة وأقرّ له أقرانه وشيوخه ومن جاء بعده من العلماء بالتقدّم
-                  والإمامة</p>
+                <p>{{ book.bookDetails }}</p>
               </div>
             </mat-expansion-panel>
           </mat-accordion>
         </mat-tab>
         <mat-tab label="كتب ذات مخطوطات">
           <mat-accordion class="aboutSearch">
-            <mat-expansion-panel>
+            <h4 *ngIf="booksWithPlan.length == 0">لا يوجد كتب</h4>
+            <mat-expansion-panel *ngFor="let book of booksWithPlan;">
               <mat-expansion-panel-header>
                 <mat-panel-title>
                   <div>
-                    <img src="../../assets/imgs/12.jpg" alt="">
+                    <img [src]="book.img" [alt]="book.name">
                   </div>
                   <div class="about-search-header-content">
-                    <h6>اسم الكتاب</h6>
-                    <span>المؤلف</span>
+                    <h6>{{book.name}}</h6>
+                    <span>{{book.auther}}</span>
                   </div>
                 </mat-panel-title>
               </mat-expansion-panel-header>
               <div class="content">
                 <h6>عن الكتاب</h6>
-                <p>جمع حوالي ستمائة ألف حديث. اشتهر شهرة واسعة وأقرّ له أقرانه وشيوخه ومن جاء بعده من العلماء بالتقدّم
-                  والإمامة</p>
-              </div>
-            </mat-expansion-panel>
-            <mat-expansion-panel>
-              <mat-expansion-panel-header>
-                <mat-panel-title>
-                  <div>
-                    <img src="../../assets/imgs/11.jpg" alt="">
-                  </div>
-                  <div class="about-search-header-content">
-                    <h6>اسم الكتاب</h6>
-                    <span>المؤلف</span>
-                  </div>
-                </mat-panel-title>
-              </mat-expansion-panel-header>
-              <div class="content">
-                <h6>عن الكتاب</h6>
-                <p>جمع حوالي ستمائة ألف حديث. اشتهر شهرة واسعة وأقرّ له أقرانه وشيوخه ومن جاء بعده من العلماء بالتقدّم
-                  والإمامة</p>
-              </div>
-            </mat-expansion-panel>
-            <mat-expansion-panel>
-              <mat-expansion-panel-header>
-                <mat-panel-title>
-                  <div>
-                    <img src="../../assets/imgs/10.jpg" alt="">
-                  </div>
-                  <div class="about-search-header-content">
-                    <h6>اسم الكتاب</h6>
-                    <span>المؤلف</span>
-                  </div>
-                </mat-panel-title>
-              </mat-expansion-panel-header>
-              <div class="content">
-                <h6>عن الكتاب</h6>
-                <p>جمع حوالي ستمائة ألف حديث. اشتهر شهرة واسعة وأقرّ له أقرانه وشيوخه ومن جاء بعده من العلماء بالتقدّم
-                  والإمامة</p>
-              </div>
-            </mat-expansion-panel>
-            <mat-expansion-panel>
-              <mat-expansion-panel-header>
-                <mat-panel-title>
-                  <div>
-                    <img src="../../assets/imgs/9.jpg" alt="">
-                  </div>
-                  <div class="about-search-header-content">
-                    <h6>اسم الكتاب</h6>
-                    <span>المؤلف</span>
-                  </div>
-                </mat-panel-title>
-              </mat-expansion-panel-header>
-              <div class="content">
-                <h6>عن الكتاب</h6>
-                <p>جمع حوالي ستمائة ألف حديث. اشتهر شهرة واسعة وأقرّ له أقرانه وشيوخه ومن جاء بعده من العلماء بالتقدّم
-                  والإمامة</p>
+                <p>{{ book.bookDetails }}</p>
               </div>
             </mat-expansion-panel>
           </mat-accordion>
         </mat-tab>
         <mat-tab label="تسجيلات صوتية">
           <div class="audios" #viewAudios>
+            <h4 *ngIf="audios.length == 0">لا يوجد تسجيلات</h4>
             <div class="audio" *ngFor="let audio of audios; index as i">
               <h6>{{ (audio.audioName.length > 30) ? (audio.audioName | slice:0:30) + '...' : audio.audioName }}</h6>
               <div class="custom-audio">
                 <div class="currentTime">
                   <span>{{ audio.totalMin + ':' + audio.totalSec }}</span>
                 </div>
-                <mat-slider class="time" min="0" [max]="audio.audio.duration" step="0.5" [(ngModel)]="audio.audio.currentTime">
+                <mat-slider class="time" min="0" [max]="audio.audio.duration" step="0.5"
+                  [(ngModel)]="audio.audio.currentTime">
                 </mat-slider>
                 <div class="currentTime">
                   <span>{{ audio.currentMin + ':' + audio.currentSec }}</span>
@@ -206,87 +100,5 @@
       </mat-tab-group>
     </div>
     <!--End Stepper-->
-
-    <!--Start Reviews-->
-    <div class="reviews">
-      <div class="leave-a-comment">
-        <div class="profile-comment wow slideInRight" data-wow-offset="300">
-          <img src="../../../../assets/imgs/review-img.png" alt="">
-        </div>
-        <div class="go-to-comment wow fadeIn" data-wow-offset="300">
-          <h6>محمد احمد عبد المنعم</h6>
-          <input placeholder="ارسل تعليقك" maxlength="100">
-          <button>اتمام التعليق</button>
-        </div>
-      </div>
-      <div class="comments">
-        <h2 class="h1">التعليقات</h2>
-        <div class="comment wow slideInUp" data-wow-offset="300">
-          <div class="profile-img">
-            <img src="../../../../assets/imgs/review-img.png" alt="">
-          </div>
-          <div class="comment-title">
-            <h6>محمود احمد</h6>
-            <p>كتاباً مجرّداً للحديث الصحيح. ومن أوّل من ألّف في تاريخ الرجال. امتُحن أواخر حياته وتُعصّب عليه
-              حتى أُخرج
-            </p>
-          </div>
-          <div class="comment-time">
-            <p>
-              منذ 5 دقائق
-            </p>
-          </div>
-        </div>
-        <div class="comment wow slideInUp" data-wow-offset="300">
-          <div class="profile-img">
-            <img src="../../../../assets/imgs/review-img.png" alt="">
-          </div>
-          <div class="comment-title">
-            <h6>محمود احمد</h6>
-            <p>كتاباً مجرّداً للحديث الصحيح. ومن أوّل من ألّف في تاريخ الرجال. امتُحن أواخر حياته وتُعصّب عليه
-              حتى أُخرج
-            </p>
-          </div>
-          <div class="comment-time">
-            <p>
-              منذ 5 دقائق
-            </p>
-          </div>
-        </div>
-        <div class="comment wow slideInUp" data-wow-offset="300">
-          <div class="profile-img">
-            <img src="../../../../assets/imgs/review-img.png" alt="">
-          </div>
-          <div class="comment-title">
-            <h6>محمود احمد</h6>
-            <p>كتاباً مجرّداً للحديث الصحيح. ومن أوّل من ألّف في تاريخ الرجال. امتُحن أواخر حياته وتُعصّب عليه
-              حتى أُخرج
-            </p>
-          </div>
-          <div class="comment-time">
-            <p>
-              منذ 5 دقائق
-            </p>
-          </div>
-        </div>
-        <div class="comment wow slideInUp" data-wow-offset="300">
-          <div class="profile-img">
-            <img src="../../../../assets/imgs/review-img.png" alt="">
-          </div>
-          <div class="comment-title">
-            <h6>محمود احمد</h6>
-            <p>كتاباً مجرّداً للحديث الصحيح. ومن أوّل من ألّف في تاريخ الرجال. امتُحن أواخر حياته وتُعصّب عليه
-              حتى أُخرج
-            </p>
-          </div>
-          <div class="comment-time">
-            <p>
-              منذ 5 دقائق
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!--End Reviews-->
   </div>
 </div>

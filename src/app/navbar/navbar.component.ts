@@ -28,8 +28,6 @@ export class NavbarComponent implements OnInit {
   }
 
 
-
-
   // toggle Navbar
   toggleNav(navbar) {
     this.isNavShowing = !this.isNavShowing;

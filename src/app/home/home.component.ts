@@ -11,7 +11,6 @@ import { Book } from '../interfaces/book';
 export class HomeComponent implements OnInit {
 
   books: Book[];
-  panelOpenState = false;
   carouslLength;
   currentIndexImg: number = 0;
   carouselImgs;
@@ -20,21 +19,30 @@ export class HomeComponent implements OnInit {
   constructor(private wowService: NgwWowService, private BookService: BooksService) { }
 
   ngOnInit(): void {
-    this.wowService.init();
-    this.getAllBooks();
-  }
+    window.scrollTo({
+      top: 0,
+      behavior: 'auto'
+    })
 
-  getAllBooks() {
-    this.books = this.BookService.books;
-  }
-
-  ngAfterViewInit() {
+    // set Variables
     this.carouslLength = (this.homeCarousel.nativeElement as HTMLElement).childNodes.length;
     this.carouselImgs = (this.homeCarousel.nativeElement as HTMLElement).childNodes;
     setInterval(() => {
       this.carouselRightFn()
-    }, 8000)
+    }, 8000);
+
+
+    // Fire Wow animation Service
+    this.wowService.init();
+    // Fire Get All Books Fn
+    this.getAllBooks();
   }
+
+  // Get All Books
+  getAllBooks() {
+    this.books = this.BookService.books;
+  }
+
 
   // Do Slider Function
   doSlider() {
@@ -43,8 +51,6 @@ export class HomeComponent implements OnInit {
     });
     this.carouselImgs[this.currentIndexImg].classList.add('activeHomeCarousel');
   }
-
-
   // Go To Left
   carouselLeftFn() {
     this.currentIndexImg--
@@ -53,7 +59,6 @@ export class HomeComponent implements OnInit {
     }
     this.doSlider();
   }
-
   // Go To Right
   carouselRightFn() {
     this.currentIndexImg++

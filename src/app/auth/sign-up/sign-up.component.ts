@@ -12,7 +12,10 @@ export class SignUpComponent implements OnInit {
 
   ngOnInit() {
     this.wowService.init();
-
+    window.scrollTo({
+      top: 0,
+      behavior: 'auto'
+    })
   }
 
 }

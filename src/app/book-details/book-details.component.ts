@@ -1,5 +1,8 @@
 import { Component, OnInit, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
 import { NgwWowService } from 'ngx-wow';
+import { ActivatedRoute } from '@angular/router';
+import { Book } from '../interfaces/book';
+import { BooksService } from '../services/books/books.service';
 
 @Component({
   selector: 'app-book-details',
@@ -8,6 +11,8 @@ import { NgwWowService } from 'ngx-wow';
 })
 export class BookDetailsComponent implements OnInit {
 
+  BookId;
+  bookDetails: Book;
 
   // كتب ذات مخطوطات
   booksWithPlan = [
@@ -36,7 +41,6 @@ export class BookDetailsComponent implements OnInit {
       bookDetails: "اشتهر شهرة واسعة في النطاق العربي حيث غير كل المفاهيم عن الكتب العامة في ذلك الحين"
     }
   ]
-
   // كتب ذات اضافات
   booksWithAdditions = [
     {
@@ -64,9 +68,6 @@ export class BookDetailsComponent implements OnInit {
       bookDetails: "اشتهر شهرة واسعة في النطاق العربي حيث غير كل المفاهيم عن الكتب العامة في ذلك الحين"
     }
   ]
-
-  isMute: boolean = false;
-
   // التسجيلات الصوتية
   audios = [
     {
@@ -97,20 +98,17 @@ export class BookDetailsComponent implements OnInit {
       currentSec: `00`
     }
   ];
-
-  currentMin;
+  isMute: boolean = false;
 
   @ViewChild('viewAudios', { static: true }) viewAudios: ElementRef;
 
-  constructor(private wowService: NgwWowService) { }
+  constructor(private wowService: NgwWowService, private route: ActivatedRoute, private BookService: BooksService) { }
 
   ngOnInit(): void {
     this.wowService.init();
-    window.addEventListener('load', () => {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      })
+    window.scrollTo({
+      top: 0,
+      behavior: 'auto'
     })
     // Set Source To Song
     for (let i = 0; i < this.audios.length; i++) {
@@ -119,7 +117,16 @@ export class BookDetailsComponent implements OnInit {
         this.getAudioTime(i)
       })
     }
+    // Fire Param Id
+    this.getParamId();
+  }
 
+
+  getParamId() {
+    this.route.params.subscribe(param => {
+      this.BookId = param.id;
+      this.bookDetails = this.BookService.books[this.BookId - 1];
+    })
   }
 
   // Toggle Play And Pause

@@ -3,17 +3,14 @@
     <!--Start Book-->
     <div class="book">
       <div class="book-img animated slideInRight">
-        <img src="../../../../assets/imgs/american.webp" alt="">
+        <img [src]="bookDetails.img" [alt]="bookDetails.name">
         <button class="btn btn-success">تحميل الكتاب</button>
       </div>
       <div class="about-book wow fadeIn" data-wow-duration="2s">
         <div class="about-book-child">
-          <h2 class="h1">اسم الكتاب</h2>
-          <span>المؤلف</span>
-          <p>اشتهر شهرة واسعة وأقرّ له أقرانه وشيوخه ومن جاء بعده من العلماء بالتقدّم والإمامة في الحديث وعلومه، حتّى
-            لقّب بأمير المؤمنين في الحديث.(2) وتتلمذ عليه كثير من كبار أئمة الحديث كمسلم بن الحجاج وابن خزيمة
-            والترمذي...
-          </p>
+          <h2 class="h1">{{ bookDetails.name }}</h2>
+          <span>{{ bookDetails.auther }}</span>
+          <p>{{ bookDetails.bookDetails }}</p>
         </div>
       </div>
       <div class="buttons animated slideInLeft">
